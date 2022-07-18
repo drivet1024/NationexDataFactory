@@ -1,0 +1,9 @@
+{
+	"name": "NationexDataFactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "10fe2ad9-76fe-4c15-b7f2-46182ecad738",
+		"tenantId": "c5d06695-b695-41c9-b3a3-4224f12974a1"
+	}
+}
