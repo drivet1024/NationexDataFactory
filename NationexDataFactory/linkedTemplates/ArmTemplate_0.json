@@ -142,6 +142,7 @@
 									"recursive": true,
 									"wildcardFileName": "*",
 									"useBinaryTransfer": true,
+									"deleteFilesAfterCompletion": true,
 									"disableChunking": false
 								},
 								"formatSettings": {
@@ -186,6 +187,36 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_ejo')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_ejo')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CopyPipeline_ejo",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2022-07-19T00:57:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CopyPipeline_ejo')]"
 			]
 		}
 	]
