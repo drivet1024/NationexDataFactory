@@ -31,6 +31,7 @@
 							"recursive": true,
 							"wildcardFileName": "*",
 							"useBinaryTransfer": true,
+							"deleteFilesAfterCompletion": true,
 							"disableChunking": false
 						},
 						"formatSettings": {
